@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default.aspx.vb" Inherits="WebApplication4._default" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="default.aspx.vb" Inherits="WebApplication4._default" EnableEventValidation="True" %>
 
 <!DOCTYPE html>
 
@@ -52,7 +52,7 @@ button:focus {
 .card {
     border-radius: 0;
     border: none;
-    height:700px;
+    height:750px;
 }
 
 .card1 {
@@ -118,6 +118,7 @@ button:focus {
     background-color: #fff;
     padding: 8px 40px;
     cursor: pointer;
+    width: 200px;
     border: 2px solid #D500F9 !important
 }
 
@@ -181,41 +182,56 @@ a:hover {
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-
-            <div class="container px-4 py-5 mx-auto top-containerr">
+       <div class="container px-4 py-5 mx-auto">
     <div class="card card0">
         <div class="d-flex flex-lg-row flex-column-reverse">
             <div class="card card1">
-                <div class="row justify-content-center my-auto">
+                <div class="row justify-content-center my-auto" formenctype="multipart/form-data">
                     <div class="col-md-8 col-10 my-5">
-                        <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="/images/Globie-logo2.png" /> </div>
+                        <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="/images/Globie-logo2.png"> </div>
                         <h3 class="mb-5 text-center heading">Globie</h3>
                         <h6 class="msg-info">Please login to your account</h6>
-                        <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input type="text" id="email" name="email" placeholder="Phone no or email id" class="form-control" /> </div>
-                        <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="psw" placeholder="Password" class="form-control" /><asp:Button ID="Button1" runat="server" Text="Button" />
-&nbsp;</div>
-                        <div class="row justify-content-center my-3 px-3"> <asp:Button class="btn-block btn-color" ID="Login" runat="server" Text="Login to Globie"></asp:Button> </div>
-                        <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Username</label> 
+                            <input type="text" id="email" name="email" placeholder="Enter email id" class="form-control">
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Password</label>
+                            <input type="password" id="psw" name="psw" placeholder="Password" class="form-control"> 
+                            <asp:Label ID="Invalid_Label" runat="server" Text="Label" CssClass="alert-danger" Visible="False">Invalid Username / Pasword </asp:Label>
+                        </div>
+                        <div class="row justify-content-center my-3 px-3">
+                            
+                          <asp:Button ID="Login_Btn" runat="server" class="btn-block btn-color" onclick="Logme" Text="Login To Globie" UseSubmitBehavior="False" /> 
+                          </div>
+                        <div class="row justify-content-center my-2"> 
+                            <small class="text-muted">Forgot Password?</small>
+
+                        </div>
                     </div>
                 </div>
                 <div class="bottom text-center mb-5">
-                    <p href="#" class="sm-text mx-auto mb-3">Don't have an account?<button class="btn btn-white ml-2" id="New">Create new</button></p>
+                    <p  class="sm-text mx-auto mb-3">Don't have an account?
+                        <asp:Button ID="Register_Btn" runat="server" class="btn btn-white ml-2" onclick="RegMe" Text="Create New" UseSubmitBehavior="False" />
+
+                    </p>
                 </div>
             </div>
             <div class="card card2">
-                <div class="my-auto mx-md-5 px-md-5 right">
-                     <img  src="/images/Globie-logo.gif" />
-                    <h3 class="text-white">Globie Is More Than Just An App </h3> <small class="text-white"> 
                
-                        Globie Helps To Build Your Network With People Which Increases Your Ability To Explore The Corners Of The World</small>
+                <div class="my-auto mx-md-5 px-md-5 right">
+                     <img  src="/images/Globie-logo.gif"/> 
+                    <h3 class="text-white">Globie Is Not Just An App</h3>
+                    <small class="text-white">It Is A Place Were You Can Explore The World And Be A Part Of Amazing Techonlogy Which Connects People .
+                        <small>Globie Provides An High Quality Way To Share Your Thoughts Using Advance Techonlogy And Machine Learning.</small>
+
+                    </small>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-        </div>
     </form>
     <p>
 
