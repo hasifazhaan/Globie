@@ -99,21 +99,48 @@
     <Content Include="App_Data\Globie_Database_log.ldf">
       <DependentUpon>Globie_Database.mdf</DependentUpon>
     </Content>
+    <Content Include="comments_page.aspx" />
+    <Content Include="comments_page.css" />
+    <Content Include="feeds_page.css" />
     <Content Include="default.aspx" />
+    <Content Include="globie_common.css" />
+    <Content Include="Home.aspx" />
+    <Content Include="images\beach.jpg" />
+    <Content Include="images\comment.png" />
     <Content Include="images\Globie-logo2.png" />
     <Content Include="images\Globie-logo.gif" />
     <Content Include="images\Globie%281%29.png" />
+    <Content Include="images\hearts-empty.png" />
+    <Content Include="images\hearts-filled.png" />
+    <Content Include="images\icons8-user.gif" />
+    <Content Include="images\userdefault.png" />
+    <Content Include="images\user\christina.jpg" />
     <Content Include="Register_Page.aspx" />
+    <Content Include="home_style.css" />
     <Content Include="Web.config" />
-    <Content Include="Dashboard_Page.aspx" />
+    <Content Include="Feeds.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="comments_page.aspx.designer.vb">
+      <DependentUpon>comments_page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="comments_page.aspx.vb">
+      <DependentUpon>comments_page.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="default.aspx.designer.vb">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="default.aspx.vb">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.vb">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -141,11 +168,11 @@
       <DependentUpon>Register_Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard_Page.aspx.designer.vb">
-      <DependentUpon>Dashboard_Page.aspx</DependentUpon>
+    <Compile Include="Feeds.aspx.designer.vb">
+      <DependentUpon>Feeds.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_Page.aspx.vb">
-      <DependentUpon>Dashboard_Page.aspx</DependentUpon>
+    <Compile Include="Feeds.aspx.vb">
+      <DependentUpon>Feeds.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

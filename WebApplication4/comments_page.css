@@ -1,0 +1,146 @@
+﻿body {
+    position: relative;
+    background-color: #261C2C;
+    height: 770px;
+    width: -moz-available;
+}
+
+.navbar {
+    position: fixed
+}
+
+nav {
+    background-color: #B42B51;
+    float: right;
+    width: 100%;
+    z-index: 1;
+}
+
+#navbarSupportedContent {
+    position: absolute;
+    transform: translateX(280%);
+}
+
+.search {
+    width: 300px;
+}
+
+.comment_image_body {
+    position: fixed;
+    top: 20%;
+    width: 50%;
+    padding: 30px;
+    background-color: black;
+}
+
+.Comment_image {
+    position: relative;
+    width: 100%;
+}
+
+.body {
+    position: relative;
+    background-color: #261C2C;
+    height: 770px;
+    width: -moz-available;
+}
+
+.navbar {
+    position: fixed
+}
+
+nav {
+    background-color: #B42B51;
+    float: right;
+    width: 100%;
+    z-index: 1;
+}
+
+#navbarSupportedContent {
+    position: absolute;
+    transform: translateX(280%);
+}
+
+.search {
+    width: 300px;
+}
+
+.comment_image_body {
+    position: fixed;
+    top: 15%;
+    width: 50%;
+    padding: 30px;
+    background-color: #3E2C41;
+    border-radius: 20px;
+    margin-left: 5px;
+    height: 650px;
+    overflow: scroll;
+}
+
+.Comment_image {
+    position: relative;
+}
+
+.Comment_section {
+    position: fixed;
+    top: 120px;
+    left: 51%;
+    height: 520px;
+    width: 48%;
+    background-color: #3E2C41;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: block;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.Comment_actions {
+    position: fixed;
+    bottom: 80px;
+    margin: 10px;
+    width: 650px;
+    display: flex;
+    justify-content: space-around
+}
+
+.usr_img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.Comment_data {
+    position: relative;
+    top: 20px;
+    left: 15px;
+    display: grid;
+    grid-row-gap: 10px;
+}
+
+.comment_row {
+    border: 2px solid;
+    background-color: #6A5B5E;
+    height: 50px;
+    width: 95%;
+    border-radius: 10px;
+    position: relative;
+    padding: 10px;
+}
+
+.uname {
+    color: #fff;
+    margin-right: 15px;
+    font: 20px solid;
+}
+
+.comment {
+    color: #fff;
+}
+
+.comments_heading {
+    font: 25px solid;
+    margin-top: 30px;
+    padding: 25px;
+}

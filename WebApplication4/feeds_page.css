@@ -1,0 +1,168 @@
+﻿#Button4 {
+    background-color: #D875A6;
+}
+#center-side {
+    position: relative;
+    height: 150px;
+    width: 100%;
+    background-color: #3E2C41;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: block;
+}
+
+#Postid {
+    position: relative;
+    top: 20px;
+    color: #ffff;
+    font-size: 30px;
+}
+
+#content {
+    background-color: #3F3F3F;
+    position: relative;
+    width: 85%;
+    margin-left: 50px;
+    border: none;
+    color: #ffff;
+}
+
+#feedtitle {
+    display: inline-block;
+    color: #ffff;
+    font-size: 25px;
+    position: relative;
+    padding: 30px 60px;
+}
+
+
+.actions {
+    position: relative;
+    display: inline-block;
+    top: -20px;
+    float: right;
+}
+
+
+
+
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 33.3%; /* IE10 */
+    flex: 33.3%;
+    max-width: 33.3%;
+    padding: 0 4px;
+}
+
+    .column .img_post {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        border-radius: 30px;
+    }
+
+.actions input {
+    position: relative;
+    top: 30px;
+}
+
+.usr_img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.actions .Comments, .actions .Likes {
+    position: relative;
+    top: 0;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+}
+
+.actions {
+    top: 2px;
+    display: flex;
+    align-items: center;
+    flex-flow: space-between;
+}
+
+#title_lrg {
+    position: relative;
+    display: flex;
+    height: 30px;
+}
+
+#profile_pic_lrg {
+    border: 2px solid #6A0896E3;
+    position: relative;
+    margin: 5px;
+    top: 10px;
+}
+
+#username_lrg {
+    position: relative;
+    margin: 20px;
+}
+
+#Close {
+    position: relative;
+    margin-left: 43%;
+    background-color: #dc249A;
+    border: none;
+}
+
+#post_lrg {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    padding: 0 5%;
+    top: 10px;
+}
+
+#CenterDivPost {
+    height: 600px;
+    width: 30%;
+    position: fixed;
+    top: 20%;
+    left: 40%;
+    background-image: linear-gradient(#dc249A,#7b4397);
+    display: grid;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+
+
+
+#likes_lrg, #likes_label_lrg, #comment_lrg, #comment_label_lrg {
+    position: relative;
+    top: -25px;
+    left: 15px;
+}
+
+#Caption {
+    position: relative;
+    left: 10px;
+    width: 100%;
+    top: -15px;
+    overflow: hidden;
+}
