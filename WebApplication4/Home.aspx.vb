@@ -10,8 +10,36 @@ Public Class Home
         con.ConnectionString = _default.CON_VALUE
         con.Open()
 
-        '' getPost()
+        getPost()
     End Sub
+
+    '<div Class="card" style="">
+    '                <div>
+    '    <asp:Image ID = "Image3" runat="server" CssClass="profile_pic_lrg" ImageUrl="images/user/christina.jpg" />
+    '                    <asp:Label ID = "Label1" runat="server" CssClass="username_lrg" Text="name@gmail.com"></asp:Label>
+    '                </div>
+    '                <img
+    '                    src="https://www.w3schools.com/w3images/wedding.jpg"
+    '                    Class="card-img-top"
+    '                    alt="..." />
+    '                <div Class="card-body">
+    '                    <asp:ImageButton ID = "ImageButton1" runat="server" CssClass="likes_lrg" ImageUrl="images/hearts-empty.png" />
+    '                    <asp:ImageButton ID = "ImageButton2" runat="server" CssClass="comment_lrg" ImageUrl="images/comment.png" />
+    '                </div>
+    '                <div Class="card-body content">
+
+    '                    <h5 Class="card-title">Christa</h5>
+    '                    <p Class="card-text Caption ">
+    '                        Some quick example text To build On the card title And make up the bulk Of the
+    '  card's content.
+    '                    </p>
+    '                </div>
+
+
+    '            </div>
+
+
+
     Public Sub getPost()
         Dim cmd As New SqlCommand With {
           .Connection = con,
@@ -32,28 +60,64 @@ Public Class Home
     Public Function createPost(ByVal Post, ByVal idindex)
         Dim like_url = "/images/hearts-empty.png"
         Dim fds As New Panel With {
-                .CssClass = "CenterDivPost"
+                .CssClass = "card"
         }
-        Dim title As New Panel With {
-                .CssClass = "title_lrg"
-        }
-
-        Dim img As New ImageButton With {
-               .ImageUrl = Post(2).ToString,
-               .ID = "Img_post" + idindex.ToString,
-               .CssClass = "img_post post_lrg",
-               .CausesValidation = False
-           }
+        Dim title As New Panel
 
         Dim profile_pic As New Image With {
                 .ImageUrl = Post(2).ToString,
                 .CssClass = "profile_pic_lrg"
             }
-
-        Dim name As New Label With {
-            .CssClass = "card-title text-light username_lrg",
+        Dim email As New Label With {
+            .CssClass = "username_lrg",
             .Text = Post(6).ToString
             }
+        title.Controls.Add(profile_pic)
+        title.Controls.Add(email)
+
+        Dim img As New Image With {
+               .ImageUrl = Post(2).ToString,
+               .ID = "Img_post" + idindex.ToString,
+               .CssClass = "card-img-top"
+           }
+
+        Dim actions As New Panel With {
+            .CssClass = "card-body"
+        }
+
+        Dim btn1 As New ImageButton With {
+               .ImageUrl = like_url,
+               .CssClass = "likes_lrg ",
+                .CausesValidation = False,
+                .ID = "Likes " + idindex.ToString
+           }
+
+
+        Dim btn2 As New ImageButton With {
+               .ImageUrl = "/images/comment.png",
+               .CssClass = "comment_lrg",
+               .CausesValidation = False,
+               .OnClientClick = "showComment();return False"
+           }
+        actions.Controls.Add(btn1)
+        actions.Controls.Add(btn2)
+
+        Dim content As New Panel With {
+            .CssClass = "card-body"
+        }
+
+        Dim caption_name As New Label With {
+            .CssClass = "card-title"
+        }
+
+        Dim caption_content As New Label With {
+            .CssClass = "card-text Caption ",
+            .Text = Post(1).ToString
+        }
+        content.Controls.Add(caption_name)
+        content.Controls.Add(caption_content)
+
+
 
         Dim postid As New Label With {
             .CssClass = "card-title text-light",
@@ -91,28 +155,15 @@ Public Class Home
         ''  Dim sqlCommand = da.SelectCommand(
 
 
-        Dim btn1 As New ImageButton With {
-               .ImageUrl = like_url,
-               .CssClass = "Likes likes_lrg ",
-                .CausesValidation = False,
-                .ID = "Likes " + idindex.ToString
-           }
 
-
-        Dim btn2 As New ImageButton With {
-               .ImageUrl = "/images/comment.png",
-               .CssClass = "Comments comment_lrg",
-               .CausesValidation = False,
-               .OnClientClick = "showComment();return False"
-           }
 
 
         ' AddHandler btn1.Click, Function() showComment(btn1, postid.Text, likes_pic.Text)
 
+        fds.Controls.Add(title)
         fds.Controls.Add(img)
-        fds.Controls.Add(profile_pic)
-        fds.Controls.Add(name)
-        fds.Controls.Add(p2)
+        fds.Controls.Add(actions)
+        fds.Controls.Add(content)
 
         Return fds
 

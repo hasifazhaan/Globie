@@ -99,6 +99,7 @@ nav {
 }
 
 .card {
+    width: 25rem;
     overflow: hidden;
     background-color: #46444b;
     color: white;
@@ -129,12 +130,13 @@ nav {
 
 .likes_lrg, .likes_label_lrg, .comment_lrg, .comment_label_lrg {
     position: relative;
-    left: 25px;
+    left: 15px;
     height: 35px;
 }
 
 .likes_lrg {
-    height: 38px;
+    height: 40px;
+    top: 2px;
 }
 
 .content {
@@ -151,6 +153,6 @@ nav {
 }
 
 .card-img-top {
-    width: 83%;
-    margin: 0 7%;
+    height: 400px;
+    margin:;
 }
