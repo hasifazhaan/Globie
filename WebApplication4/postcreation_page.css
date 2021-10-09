@@ -1,0 +1,47 @@
+﻿#Button2 {
+    background-color: #D875A6;
+}
+
+.box__dragndrop,
+.box__uploading,
+.box__success,
+.box__error {
+    display: none;
+}
+
+.Moveable {
+    width: 150vh;
+}
+
+.profile_pic_lrg {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #6A0896E3;
+    position: relative;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.btn-primary {
+    float: right;
+    margin: 15px;
+}
+
+.card {
+    width: 30rem;
+    overflow: hidden;
+    background-color: #46444b;
+    color: white;
+    margin: 0 10px;
+    position: relative;
+    left: 30%;
+}
+
+#PostImage {
+    height: 300px;
+    margin:;
+}
+
+#Caption {
+    width: 450px;
+}

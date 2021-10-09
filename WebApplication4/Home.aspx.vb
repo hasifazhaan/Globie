@@ -4,13 +4,26 @@ Public Class Home
     Inherits System.Web.UI.Page
 
     Dim con As New SqlConnection
+
+    Dim likes(50) As String
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        usernamelbl.Text = "Raju@gmail.com" '_default.username
+        usernamelbl.Text = "ram@gmail.com" '_default.username
         con.ConnectionString = _default.CON_VALUE
         con.Open()
 
         getPost()
+        'Dim counter = 0
+        'For Each i As String In likes
+        '    CheckIfLiked(i, counter)
+        '    counter += 1
+        'Next
+
+        Dim a = Contents.FindControl("Likes 0")
+        Dim i = a
+
+
+
     End Sub
 
     '<div Class="card" style="">
@@ -43,7 +56,7 @@ Public Class Home
     Public Sub getPost()
         Dim cmd As New SqlCommand With {
           .Connection = con,
-          .CommandText = "select * from post"
+          .CommandText = "SELECT * FROM post "
       }
 
 
@@ -52,7 +65,9 @@ Public Class Home
         da.Fill(ds)
         Dim index = 0
         For i As Integer = 0 To ds.Tables(0).Rows.Count - 1
+
             Dim fds = createPost(ds.Tables(0).Rows(i), i)
+
             Contents.Controls.Add(fds)
         Next
     End Sub
@@ -70,7 +85,7 @@ Public Class Home
             }
         Dim email As New Label With {
             .CssClass = "username_lrg",
-            .Text = Post(6).ToString
+            .Text = Post(5).ToString
             }
         title.Controls.Add(profile_pic)
         title.Controls.Add(email)
@@ -97,7 +112,7 @@ Public Class Home
                .ImageUrl = "/images/comment.png",
                .CssClass = "comment_lrg",
                .CausesValidation = False,
-               .OnClientClick = "showComment();return False"
+               .OnClientClick = "target ='_blank';"
            }
         actions.Controls.Add(btn1)
         actions.Controls.Add(btn2)
@@ -124,21 +139,15 @@ Public Class Home
             .Text = Post(0).ToString,
             .Visible = False
             }
+        likes(idindex) = Post(0).ToString
+
 
         Dim p2 As New Panel With {
             .CssClass = "actions"
             }
 
-        Dim query = "select * from likes_post where post_id = '" + postid.Text + "' And username = '" + usernamelbl.Text + "' "
 
-        Dim cmd2 As New SqlCommand With {
-            .Connection = con,
-            .CommandText = query
-            }
-        ' Dim dr = cmd2.ExecuteReader
-        ' If dr.Read Then
-        'like_url = "/images/hearts-filled.png"
-        'End If
+
 
         Dim likes_pic As New Label With {
            .Text = Post(3).ToString,
@@ -156,9 +165,9 @@ Public Class Home
 
 
 
+        AddHandler btn1.Click, Function() likepost(postid.Text, btn1)
 
-
-        ' AddHandler btn1.Click, Function() showComment(btn1, postid.Text, likes_pic.Text)
+        AddHandler btn2.Click, Function() ShowComments(postid.Text)
 
         fds.Controls.Add(title)
         fds.Controls.Add(img)
@@ -169,12 +178,61 @@ Public Class Home
 
 
     End Function
+    Public Function ShowComments(ByVal post_id)
 
-    Public Sub FeedClick() Handles Button4.Click
-        Response.Redirect("./Feeds.aspx")
+        Response.Redirect("/comments_page.aspx?postid=" + post_id + "")
+        Return 0
+    End Function
+    Public Function likepost(ByVal post_id, ByVal btn)
+        Dim query = "INSERT INTO likes_post VALUES('" + post_id + "','" + usernamelbl.Text + "' )"
+        Dim cmd2 As New SqlCommand With {
+            .Connection = con,
+            .CommandText = query
+            }
+        Try
+            Dim dr = cmd2.ExecuteNonQuery
+            If dr Then
+                btn.ImageUrl = "/images/hearts-filled.png"
+
+            End If
+        Catch ex As SqlException
+            If ex.Number = 2627 Then
+                btn.ImageUrl = "/images/hearts-filled.png"
+            End If
+        End Try
+
+        Return 0
+    End Function
+
+    Public Sub CheckIfLiked(ByVal postid, ByVal index)
+
+        Dim control_like = Contents.FindControl("Likes" + index.ToString)
+        MsgBox(control_like.ToString)
+        Dim query = "select * from likes_post where post_id = '" + postid.Text + "' And username = '" + usernamelbl.Text + "' "
+
+        Dim cmd2 As New SqlCommand With {
+            .Connection = con,
+            .CommandText = query
+            }
+        Dim dr = cmd2.ExecuteReader
+        If dr.Read Then
+
+            'control_like.ImageUrl = "/images/comment.png"
+        End If
+
     End Sub
+
     Public Sub HomeClick() Handles Button1.Click
         Response.Redirect("./Home.aspx")
+    End Sub
+    Public Sub NewPost() Handles Button2.Click
+        Response.Redirect("./PostCreation.aspx")
+    End Sub
+    Public Sub Friends() Handles Button3.Click
+        Response.Redirect("./PostCreation.aspx")
+    End Sub
+    Public Sub FeedClick() Handles Button4.Click
+        Response.Redirect("./Feeds.aspx")
     End Sub
 
 End Class

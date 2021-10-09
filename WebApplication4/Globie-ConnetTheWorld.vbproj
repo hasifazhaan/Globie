@@ -115,6 +115,8 @@
     <Content Include="images\icons8-user.gif" />
     <Content Include="images\userdefault.png" />
     <Content Include="images\user\christina.jpg" />
+    <Content Include="PostCreation.aspx" />
+    <Content Include="postcreation_page.css" />
     <Content Include="Register_Page.aspx" />
     <Content Include="home_style.css" />
     <Content Include="Web.config" />
@@ -160,6 +162,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MyModule1.vb" />
+    <Compile Include="PostCreation.aspx.designer.vb">
+      <DependentUpon>PostCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostCreation.aspx.vb">
+      <DependentUpon>PostCreation.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Register_Page.aspx.designer.vb">
       <DependentUpon>Register_Page.aspx</DependentUpon>

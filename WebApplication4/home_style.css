@@ -1,102 +1,9 @@
-﻿body {
-    background-color: #261C2C;
-}
-
-.navbar {
-    position: fixed
-}
-
-nav {
-    background-color: #B42B51;
-    float: right;
-    width: 100%;
-}
-
-#navbarSupportedContent {
-    position: absolute;
-    transform: translateX(280%);
-}
-
-.search {
-    width: 300px;
-}
-
-
-#left-side {
-    position: fixed;
-    top: 120px;
-    left: 10px;
-    height: 600px;
-    width: 200px;
-    background-color: #3E2C41;
-    border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: block;
-}
-
-.btn-options {
-    position: relative;
-    top: 10px;
-    width: 98%;
-    height: 60px;
-    padding: 3px;
-    margin: 2px;
-    background-color: #3E2C41;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    text-align: left;
-    padding-left: 40px;
-}
-
-    .btn-options:hover {
-        background-color: #D875A6;
-    }
+﻿
 
 .selected_btn {
     background-color: #D875A6;
 }
 
-#user-details {
-    height: 200px;
-    width: 70%;
-    padding: 10px;
-}
-
-
-#Label1 {
-    color: #ffff;
-}
-
-#Label2 {
-    margin-top: 2px;
-    color: green;
-    display: inline list-item;
-    font-size: 15px;
-}
-
-
-
-
-
-.CenterDivPost {
-    height: 600px;
-    width: 550px;
-    margin-left: 12px;
-    top: 20%;
-    left: 40%;
-    background-image: linear-gradient(#dc249A,#7b4397);
-    display: grid;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-
-.title_lrg {
-    position: relative;
-    display: flex;
-    height: 30px;
-}
 
 .card {
     width: 25rem;
@@ -115,18 +22,7 @@ nav {
     border-radius: 50%;
 }
 
-.username_lrg {
-    position: relative;
-    margin: 20px;
-}
 
-.post_lrg {
-    position: relative;
-    height: 400px;
-    width: 100%;
-    padding: 0 5%;
-    top: 10%;
-}
 
 .likes_lrg, .likes_label_lrg, .comment_lrg, .comment_label_lrg {
     position: relative;

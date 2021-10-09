@@ -12,7 +12,7 @@
     <title>Globie Connect The World</title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" method ="POST" >
         <section>
             <header>
                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,14 +20,11 @@
                       &nbsp;&nbsp; &nbsp;&nbsp;
                    <a class="navbar-brand">Globie</a>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <form class="form-inline my-2 my-lg-0">
-                          <input class="form-control mr-sm-2 search" type="search" placeholder="Search Friends" aria-label="Search" />&nbsp;&nbsp;
-                               <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
-                      </form>
+                      
                   </div>
               </nav>
             </header>
-            <section>
+            </section>
             <section>
 
                 <article class ="comment_image_body">
@@ -43,7 +40,7 @@
                         </asp:Panel>
                     <asp:Panel ID="Panel2" runat="server" CssClass ="Comment_actions">
                         <asp:TextBox ID="comment_text" name="comment_text" CssClass="form-control mr-sm-2 Comment_text" runat="server"></asp:TextBox>
-                    <asp:Button ID="comment_on_post"  class="btn btn-outline-success my-2 my-sm-0 " runat="server" Text="Button"  UseSubmitBehavior="False" CausesValidation="False" />
+                    <asp:Button ID="comment_on_post"  class="btn btn-outline-success my-2 my-sm-0 " runat="server" Text="Button"   />
                     </asp:Panel>
                     
                 </asp:Panel>

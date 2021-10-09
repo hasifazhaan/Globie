@@ -3,14 +3,32 @@ Imports System.Data.SqlClient
 Public Class comments_page
     Inherits System.Web.UI.Page
     Dim post
+    Dim postid As String = "0"
     Dim con As New SqlConnection
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         con.ConnectionString = _default.CON_VALUE
         con.Open()
-        post = WebForm1.curr_post
+        postid = Request.QueryString("postid")
+        If postid = Nothing Then
+            postid = MyModule1.current_post_id.ToString
+        Else
+            MyModule1.current_post_id = postid.ToString
+        End If
+        Dim q1 = "select * from post where post_id = '" + postid.ToString + "'"
+        Dim cmd As New SqlCommand With
+            {
+            .CommandText = q1,
+            .Connection = con}
+
+        Dim da As New SqlDataAdapter(cmd)
+        Dim ds As New DataSet()
+        da.Fill(ds)
+        post = ds.Tables(0).Rows(0)
+
         loadPost()
         loadComment()
+
     End Sub
     Public Sub loadPost()
         comment_image.ImageUrl = post(2).ToString
@@ -49,7 +67,7 @@ Public Class comments_page
     End Sub
     Public Sub postComment() Handles comment_on_post.Click
         Dim msg = Request.Form("comment_text")
-        Dim query = "insert into who_commented values('" + post(0).ToString + "','" + WebForm1.usrname + "','" + msg.ToString + "')"
+        Dim query = "insert into who_commented values('" + postid + "','" + WebForm1.usrname + "','" + msg.ToString + "')"
         Try
             Dim cmd As New SqlCommand With
            {
@@ -60,11 +78,11 @@ Public Class comments_page
             If res Then
                 Response.Redirect("/comments_page.aspx")
             Else
-                Response.Redirect("/Dashboard_Page.aspx")
+                Response.Redirect("/Feeds.aspx")
 
             End If
 
-        Catch ex As Exception
+        Catch ex As SqlException
 
         End Try
 

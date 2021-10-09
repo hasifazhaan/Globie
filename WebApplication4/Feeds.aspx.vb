@@ -24,7 +24,7 @@ Public Class WebForm1
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        usernamelbl.Text = "Raju@gmail.com" '_default.username
+        usernamelbl.Text = "ram@gmail.com" '_default.username
         usrname = usernamelbl.Text
         con.ConnectionString = _default.CON_VALUE
         con.Open()
@@ -86,7 +86,7 @@ Public Class WebForm1
 
         Dim name As New Label With {
             .CssClass = "card-title text-light",
-            .Text = Post(6).ToString
+            .Text = Post(5).ToString
             }
 
         Dim postid As New Label With {
@@ -173,7 +173,7 @@ Public Class WebForm1
         CenterDivPost.Visible = True
         id_lrg.Text = Post(0).ToString
         profile_pic_lrg.ImageUrl = Post(2).ToString
-        username_lrg.Text = Post(6).ToString
+        username_lrg.Text = Post(5).ToString
         post_lrg.ImageUrl = Post(2).ToString
         likes_label_lrg.Text = Post(3).ToString
         comment_label_lrg.Text = Post(4).ToString
@@ -191,7 +191,7 @@ Public Class WebForm1
 
     End Sub
     Public Sub ShowComments() Handles comment_lrg.Click
-        Response.Redirect("/comments_page.aspx")
+        Response.Redirect("/comments_page.aspx?postid=" + curr_post(0).ToString + "")
 
     End Sub
 
@@ -242,10 +242,16 @@ Public Class WebForm1
 
     Public Sub HomeClick() Handles Button1.Click
         Response.Redirect("./Home.aspx")
-
+    End Sub
+    Public Sub NewPost() Handles Button2.Click
+        Response.Redirect("./PostCreation.aspx")
+    End Sub
+    Public Sub Friends() Handles Button3.Click
+        Response.Redirect("./PostCreation.aspx")
     End Sub
     Public Sub FeedClick() Handles Button4.Click
         Response.Redirect("./Feeds.aspx")
     End Sub
+
 
 End Class
