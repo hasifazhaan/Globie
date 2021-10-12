@@ -33,7 +33,7 @@ Public Class comments_page
     Public Sub loadPost()
         comment_image.ImageUrl = post(2).ToString
         profile_img_usr.ImageUrl = post(2).ToString
-        profile_name_usr.Text = post(6).ToString
+        profile_name_usr.Text = post(5).ToString
     End Sub
     Public Sub loadComment()
         Dim query = "select * from who_commented where post_id = '" + post(0).ToString + "'"
