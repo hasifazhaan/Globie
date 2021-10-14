@@ -90,6 +90,12 @@
                 </section>
            
        -->
+                    <asp:Panel ID="writter" runat="server"  class="msg-writter">
+                        <asp:Label ID="touserid" runat="server" Text="wfw"></asp:Label>
+                         <asp:TextBox ID="Message" runat="server"></asp:TextBox>
+                        <asp:Button ID="Button6" runat="server" Text="Send" CssClass="send" />
+
+                    </asp:Panel>
         </asp:Panel>
              </section>
     </form>

@@ -41,6 +41,14 @@
     border: none;
 }
 
+.heading_friend {
+    background-color: #D875A6;
+    font-size: 20px;
+    text-align: center;
+    height: 100px;
+    padding-top: 10%;
+}
+
 .ms-2 {
     display: flex;
 }
@@ -73,7 +81,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.to {
+.from {
     margin-left: 58%;
 }
 
@@ -82,6 +90,8 @@
     height: 11.5%;
     position: fixed;
     width: 112.5vh;
+    bottom: 60px;
+    left: 523px;
     box-shadow: rgba(0, 0, 0, 0.94) 0px 3px 18px;
     border-radius: 0 0 10px 0;
 }

@@ -129,4 +129,40 @@ Partial Public Class Friends
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents TextBox1 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''writter control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents writter As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''touserid control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents touserid As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Message As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Button6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Button6 As Global.System.Web.UI.WebControls.Button
 End Class

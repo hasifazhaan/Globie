@@ -1,28 +1,40 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Globalization
+
 Public Class Friends
     Inherits System.Web.UI.Page
 
     Dim con As New SqlConnection
-
+    Public tousr = ""
     Dim toppanel As New Panel With {
         .CssClass = "friends-name"
         }
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        usernamelbl.Text = "rohan@gmail.com" '_default.username
+        usernamelbl.Text = _default.username
         con.ConnectionString = _default.CON_VALUE
         con.Open()
         FriendsName()
 
-
-
+        writter.Visible = False
+        touserid.Visible = False
     End Sub
 
     Public Sub FriendsName()
+
+
+        Dim Heading As New Panel With {
+        .CssClass = "heading_friend"
+        }
+        Dim context As New Label With {
+        .Text = "Friend "
+        }
+        Heading.Controls.Add(context)
+        toppanel.Controls.Add(Heading)
         Dim cmd As New SqlCommand With {
         .Connection = con,
-        .CommandText = "SELECT DISTINCT usr_from,usr_to,status,date1 FROM usr_msg WHERE usr_from = '" + usernamelbl.Text + "' OR usr_to = '" + usernamelbl.Text + "' ORDER BY date1 ASC"
+        .CommandText = "SELECT DISTINCT usr_from,usr_to,status FROM usr_msg WHERE usr_from = '" + usernamelbl.Text + "' OR usr_to = '" + usernamelbl.Text + "' "
     }
 
         Dim da As New SqlDataAdapter(cmd)
@@ -81,14 +93,16 @@ Public Class Friends
 
     Public Function CreateMessage(ByVal towho)
 
-
+        touserid.Text = towho.ToString
         Dim cmd As New SqlCommand With {
          .Connection = con,
-         .CommandText = "SELECT * FROM usr_msg WHERE usr_from = '" + usernamelbl.Text + "' AND usr_to = '" + towho + "' OR  usr_to = '" + usernamelbl.Text + "' AND usr_from = '" + towho + "'"
+         .CommandText = "SELECT * FROM usr_msg WHERE usr_from = '" + usernamelbl.Text + "' AND usr_to = '" + towho + "' OR  usr_to = '" + usernamelbl.Text + "' AND usr_from = '" + towho + "'  ORDER BY date1 ASC "
      }
         Dim da As New SqlDataAdapter(cmd)
         Dim ds As New DataSet()
         da.Fill(ds)
+
+        Dim mid = "0"
         Dim area As New Panel With {
         .CssClass = "msg-area"
         }
@@ -118,6 +132,7 @@ Public Class Friends
             Dim msgcontainer As New HtmlGenericControl
             msgcontainer.TagName = "ul"
 
+            mid = row(0)
 
             Dim msgcontent As New Label
 
@@ -135,39 +150,44 @@ Public Class Friends
         Next
         area.Controls.Add(msgpanel)
 
-        Dim writter As New Panel With {
-                   .CssClass = "msg-writter"
-                   }
-            Dim inp As New TextBox With {
-            .ID = "inp-msg"
-            }
-            Dim toname As New Button With {
-                    .CssClass = "send",
-                    .CausesValidation = False,
-                    .Text = "Send",
-                    .OnClientClick = "abd() "
-                }
-        AddHandler toname.Click, Function() SendMessage(toname.Text)
 
-        writter.Controls.Add(inp)
-            writter.Controls.Add(toname)
-            area.Controls.Add(writter)
-            Container.Controls.Add(area)
+        Container.Controls.Add(area)
+        writter.Visible = True
+
+        Dim seen = "UPDATE msg_usr SET status  = 'S' WHERE mid = '" + mid.ToString + "' "
 
 
-        Return 0
+        Return towho
+
     End Function
 
 
-    Public Function SendMessage(name)
-        MsgBox("hehe")
+    Public Function SendMessage() Handles Button6.Click
+        Dim msg = Message.Text
 
-        '    Dim cmd As New SqlCommand With {
-        '    .Connection = con,
-        '    .CommandText = ""
-        '}
-        Dim text = Request.Form("inp-msg")
-        MsgBox(text.ToString)
+        Dim dt As Date = Date.Now
+
+        Dim usr = usernamelbl.Text
+
+        Dim pkey = usr + dt.ToString
+
+        Dim cmd As New SqlCommand With {
+        .Connection = con,
+        .CommandText = "INSERT INTO usr_msg (mid,usr_from,usr_to,msg,status,date1) VALUES ('" + pkey + "','" + usr + "','" + touserid.Text + "','" + msg + "','" + "N" + "','" + dt.ToString + "')"
+    }
+        Try
+            Dim dr1 = cmd.ExecuteNonQuery()
+
+            If dr1 = False Then
+                MsgBox("Failed")
+            End If
+            Message.Text = ""
+            CreateMessage(touserid.Text)
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        End Try
+
+
         Return 0
     End Function
     '<section Class="friends-name">
