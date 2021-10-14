@@ -1,0 +1,121 @@
+﻿#Button3 {
+    background-color: #D875A6;
+}
+
+.Moveable {
+    width: 150vh;
+    background-color: #D87500;
+    border-radius: 10px;
+}
+
+.friends-name {
+    height: 100%;
+    background-color: #EDF2EA;
+    width: 25%;
+}
+
+.msg-area {
+    height: 100%;
+    width: 75%;
+    background-color: blueviolet;
+    overflow: hidden;
+}
+
+.selected-user-details {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    background-color: #7A16BC;
+    display: flex;
+}
+
+.image {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 5px 25px;
+}
+
+.name {
+    background: transparent;
+    border: none;
+}
+
+.heading_friend {
+    background-color: #D875A6;
+    font-size: 20px;
+    text-align: center;
+    height: 100px;
+    padding-top: 10%;
+}
+
+.ms-2 {
+    display: flex;
+}
+
+.rounded-pill {
+    margin-left: 20%;
+    height: 20px;
+}
+
+.username {
+    border: none;
+    background-color: transparent;
+    height: 50px;
+    width: 12rem;
+    cursor: pointer;
+}
+
+.message {
+    height: 75%;
+    width: 98.5%;
+    margin: 0 10px;
+    overflow-y: scroll;
+}
+
+.from, .to {
+    width: 40%;
+    background-color: #5717CA;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.from {
+    margin-left: 58%;
+}
+
+.msg-writter {
+    background-color: #7F2BE2;
+    height: 11.5%;
+    position: fixed;
+    width: 112.5vh;
+    bottom: 60px;
+    left: 523px;
+    box-shadow: rgba(0, 0, 0, 0.94) 0px 3px 18px;
+    border-radius: 0 0 10px 0;
+}
+
+    .msg-writter input {
+        background-color: transparent;
+        border: 1px solid black;
+        border-radius: 50px;
+        margin: 10px;
+        height: 60%;
+        width: 80%;
+        color: white;
+        padding: 10px;
+    }
+
+    .msg-writter .send {
+        background-color: blueviolet;
+        height: 60px;
+        width: 90px;
+        border: 1px solid;
+        border-radius: 10px;
+        margin-left: 20px;
+    }
+
+        .msg-writter .send:hover {
+            box-shadow: rgba(0, 0, 0, 0.64) 0px 3px 18px;
+        }

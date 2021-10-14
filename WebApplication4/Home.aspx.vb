@@ -229,7 +229,7 @@ Public Class Home
         Response.Redirect("./PostCreation.aspx")
     End Sub
     Public Sub Friends() Handles Button3.Click
-        Response.Redirect("./PostCreation.aspx")
+        Response.Redirect("./Friends.aspx")
     End Sub
     Public Sub FeedClick() Handles Button4.Click
         Response.Redirect("./Feeds.aspx")

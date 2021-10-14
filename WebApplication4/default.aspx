@@ -66,8 +66,10 @@ button:focus {
 }
 
 #logo {
-    width: 140px;
-    height: 120px
+    position: relative;
+    margin-top:-25%;
+    width: 60%;
+    height: 60%;
 }
 
 .heading {

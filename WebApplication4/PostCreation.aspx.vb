@@ -21,6 +21,7 @@ Public Class PostCreation
             Dim usr = _default.username.ToString
             Dim dt As Date = Today
             Dim pkey = usr + Today.ToString
+
             Dim cmd As New SqlCommand With {
         .Connection = con,
         .CommandText = "insert into post values('" + pkey + "','" + Caption.Text + "','" + PostImage.ImageUrl.ToString + "','0','0','" + usr + "')"
@@ -29,7 +30,7 @@ Public Class PostCreation
 
             If dr1 Then
 
-                MsgBox("successFul")
+                MsgBox("SuccessFul")
 
             Else
                 MsgBox("Failed")
@@ -49,7 +50,7 @@ Public Class PostCreation
         Response.Redirect("./PostCreation.aspx")
     End Sub
     Public Sub Friends() Handles Button3.Click
-        Response.Redirect("./PostCreation.aspx")
+        Response.Redirect("./Friends.aspx")
     End Sub
     Public Sub FeedClick() Handles Button4.Click
         Response.Redirect("./Feeds.aspx")
